@@ -1,4 +1,4 @@
-# Youpp
+# [Youpp](http://ambrosechua.github.io/Youpp)
 
 A (beta) well-designed, simple YouTube client.
 
