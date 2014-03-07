@@ -1,4 +1,4 @@
-var youapikey = require("./apikey.js").key; // "AIzaSyD88ejeWUIVWmU7j5lhZNLyP9q3S6TFtFQ"
+var youapikey = require("./apikey.js").youtubekey; // "AIzaSyD88ejeWUIVWmU7j5lhZNLyP9q3S6TFtFQ"
 
 var gui = require('nw.gui');
 var gclipboard = gui.Clipboard.get();
