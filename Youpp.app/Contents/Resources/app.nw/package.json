@@ -1,0 +1,19 @@
+{
+  "name": "Youpp",
+  "description": "A nice YouTube player for you. ",
+  "version": "0.0.1",
+  "main": "index.html",
+  "window": {
+    "show": true,
+    "toolbar": false,
+    "frame": false,
+    "position": "center",
+    "width": 640,
+    "height": 480,
+    "min_width": 64,
+    "min_height": 64
+  },
+  "webkit": {
+    "plugin": true
+  }
+}
