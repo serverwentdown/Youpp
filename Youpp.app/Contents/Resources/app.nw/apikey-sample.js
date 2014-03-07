@@ -1,3 +1,3 @@
 module.exports = {
-	key: "your-youtube-api-key-here"
+	youtubekey: "your-youtube-api-key-here"
 };

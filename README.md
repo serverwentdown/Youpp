@@ -6,7 +6,9 @@ Code and design MIT Licensed.
 
 ## Configurations
 
-Check out the file `Youpp.app/Contents/Resources/app.nw
+**Do this in order to run**
+
+Check out the file `Youpp.app/Contents/Resources/app.nw/apikey-sample.js`, dump in your YouTube API key and rename to `apikey.js`. 
 
 ## How to use. 
 
@@ -32,5 +34,3 @@ Follow the [guide](https://github.com/rogerwang/node-webkit/wiki/How-to-package-
 ### [Packaging for Linux](https://github.com/rogerwang/node-webkit/wiki/How-to-package-and-distribute-your-apps#wiki-linux)
 
 If you use Linux, you don't need help from this Linux newbie. 
-
-## Configuration
