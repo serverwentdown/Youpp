@@ -1,0 +1,106 @@
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+*:focus {
+	outline: none;
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Lato Regular'), local('Lato-Regular'), url(Lato400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Lato Bold'), local('Lato-Bold'), url(Lato700.woff) format('woff');
+}
+body {
+	line-height: 1.2em;
+	font-size: 20px;
+	font-family: Lato, "Helvetica Neue", sans-serif;
+	background-color: #fff;
+	color: #444;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+h1, h2, h3 {
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 1.4em;
+	padding: 0.666em;
+}
+.center {
+	text-align: center;
+}
+.padd {
+	padding: 30px;
+}
+.block {
+	display: block;
+}
+.pull-right {
+	float: right;
+}
+.small, small {
+	font-size: 0.8em;
+}
+.smaller {
+	font-size: 0.6em;
+}
+.btn {
+	display: inline-block;
+	margin: 1em;
+	margin: 0.4em;
+	border-radius: 4px;
+	background-color: #fff;
+	box-shadow: 0 0 0 0 #444 inset, 0.3em 0.2em 0 0 #bbb;
+	border: 0.2em solid #444;
+	padding: 0.8em;
+	text-align: center;
+	transition: 0.25s box-shadow, 0.25s -webkit-transform;
+}
+.btn:hover {
+	box-shadow: 0 4em 0 0 #444 inset, 0em 0em 0 0 #bbb;
+	-webkit-transform: translate(0.3em, 0.2em);
+	color: #fff;
+}
+.btn.disabled {
+	opacity: 0.8;
+}
+.btn.disabled:hover {
+	box-shadow: 0 0 0 0 #444 inset, 0.3em 0.2em 0 0 #bbb;
+	-webkit-transform: translate(0, 0);
+	color: #444;
+}
+.youpp {
+	color: #e74c3c;
+}
+.container {
+	margin: 0 auto;
+	max-width: 640px;
+}
+.container > footer {
+	opacity: 0.5;
+	font-size: 0.8em;
+	margin: 40px 0 0 0;
+}
+ol {
+	list-style: decimal;
+	padding: 2px 24px;
+}
+.def span {
+	line-height: 1.4em;
+}
+.btn-small {
+	padding: 0.6em;
+}
+h1 {
+	font-size: 40px;
+}
