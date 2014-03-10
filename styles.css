@@ -24,7 +24,7 @@ body {
 	font-family: Lato, "Helvetica Neue", sans-serif;
 	background-color: #fff;
 	color: #444;
-	-webkit-font-smoothing: subpixel-antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 a {
 	color: inherit;
