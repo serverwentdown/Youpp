@@ -31,7 +31,7 @@ body {
 	background-color: #fff;
 	color: #444;
 	-webkit-user-select: none;
-	-webkit-font-smoothing: subpixel-antialiased;
+	-webkit-font-smoothing: antialiased;
 	overflow: visible;
 }
 a {
@@ -102,6 +102,7 @@ input, textarea, select, button {
 	transition: 0.25s background-color;
 	-webkit-user-select: text;
 	cursor: text;
+	-webkit-font-smoothing: inherit;
 }
 .box, input {
 	border: 0.2em solid #444;
