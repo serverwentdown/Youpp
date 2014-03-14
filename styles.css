@@ -30,6 +30,9 @@ a {
 	color: inherit;
 	text-decoration: inherit;
 }
+p {
+	padding: 5px;
+}
 h1, h2, h3 {
 	font-weight: 600;
 	font-size: 30px;
