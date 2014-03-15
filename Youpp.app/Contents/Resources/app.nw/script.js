@@ -25,8 +25,14 @@ var togglefloat = new gui.MenuItem({
 	type: 'checkbox',
 	click: togglefloating
 });
-Mousetrap.bind(['command+f', 'ctrl+f'], function() {
+Mousetrap.bindGlobal(['command+f', 'ctrl+f'], function() {
 	togglefloating();
+	console.log("yay floating");
+    return false;
+});
+// Check out line 123 onYouTubeIframeAPIReady()
+Mousetrap.bindGlobal(['command+d', 'ctrl+d'], function() {
+	gwindow.showDevTools();
     return false;
 });
 menuview.append(togglefloat);
@@ -123,9 +129,13 @@ function onYouTubeIframeAPIReady() {
 	    playerVars: { 'autoplay': 0, 'controls': 0, 'showinfo': 0 },
 		events: {
 			'onReady': onPlayerReady,
-			'onStateChange': onPlayerStateChange
+			'onStateChange': onPlayerStateChange,
 		}
 	});
+	// player.addEventListener("keyup", function (e) {
+	//     e.mousetrap = true;
+	//     Mousetrap.handleKeyEvent(e);
+	// });
 }
 function onPlayerReady(event) {
 	// event.target.playVideo();
@@ -141,6 +151,9 @@ function onPlayerStateChange(event) {
 function stopVideo() {
 	player.stopVideo();
 }
+
+var kbdeventhelper;
+
 function showplayer(id) {
 	$("body").addClass("playback");
 	// $(".view").fadeOut(250);
@@ -151,15 +164,23 @@ function showplayer(id) {
 	// 	event.target.playVideo()
 	// }, 1000);
 	player.setSize(window.innerWidth, window.innerHeight);
+
+	kbdeventhelper = setInterval(function () {
+		if (document.activeElement != document.getElementById("kbdeventhelper")) {
+			document.getElementById("kbdeventhelper").focus();
+		}
+	}, 200);
 }
 function hideplayer() {
 	window.location.hash = "";
 	$("body").removeClass("playback");
 	// $(".view").fadeOut(250);
 	// $("#search").fadeIn(250);
-		$("#playerview").fadeOut(250);
+	$("#playerview").fadeOut(250);
 	// $("#movebar").fadeIn(250);
 	player.stopVideo();
+
+	clearInterval(kbdeventhelper);
 }
 $("#back").click(function() {
 	hideplayer();
@@ -167,6 +188,3 @@ $("#back").click(function() {
 $(window).on("resize", function () {
 	player.setSize(window.innerWidth, window.innerHeight);
 });
-
-// gwindow.showDevTools();
-
