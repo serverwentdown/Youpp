@@ -85,7 +85,10 @@
 				var oldhref = ele.getAttribute("href");
 				var newhref = data[0].html_url.replace("tag/", "download/") + "/" + oldhref.substr(oldhref.indexOf("#")+1);
 				ele.setAttribute("href", newhref);
-				console.log(newhref);
+				ele.addEventListener("click", function () {
+					_gaq.push(['_trackEvent', 'Downloads', 'package', newhref]);
+				});
+				// console.log(newhref);
 			}
 		}
 	</script>
