@@ -43,7 +43,7 @@
 		</div>
 		<div class="screenshots padd center">
 			<a href="screenshots/" class="btn btn-small">Screenshots</a>
-			<a href="http://github.com/ambrosechua/Youpp/issues" class="btn btn-small">Bugs</a>
+			<a href="https://github.com/ambrosechua/Youpp/issues" target="_blank" class="btn btn-small">Bugs</a>
 		</div>
 		<br />
 		<div class="center">
@@ -52,7 +52,7 @@
 			<a href="http://github.com/ambrosechua/Youpp/releases#Youpp-win.zip" class="btn btn-small" title="Very buggy and not ready yet. ">Windows <small class="smaller">(not working)</small></a>
 			<a href="http://github.com/ambrosechua/Youpp/releases#Youpp.nw" class="btn btn-small" title="Requires node-webkit installed">.nw file</a>
 			<br />
-			<a href="https://github.com/ambrosechua/Youpp" class="btn btn-small">Source</a>
+			<a href="https://github.com/ambrosechua/Youpp" target="_blank" class="btn btn-small">Source</a>
 		</div>
 		<footer>
 			<span>Design and code MIT Licensed by Ambrose Chua. </span>
@@ -87,10 +87,19 @@
 				ele.setAttribute("href", newhref);
 				ele.addEventListener("click", function () {
 					_gaq.push(['_trackEvent', 'Downloads', 'package', newhref]);
+					console.log("You are now downloading something. ");
 				});
 				// console.log(newhref);
 			}
 		}
+
+
+		document.querySelector("a[href='https://github.com/ambrosechua/Youpp']").addEventListener("click", function () {
+			_gaq.push(['_trackEvent', 'Downloads', 'source', 'https://github.com/ambrosechua/Youpp']);
+		});
+		document.querySelector("a[href='https://github.com/ambrosechua/Youpp/issues']").addEventListener("click", function () {
+			_gaq.push(['_trackEvent', 'Downloads', 'source', 'https://github.com/ambrosechua/Youpp/issues']);
+		});
 	</script>
 	<script type="text/javascript">
 
