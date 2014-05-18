@@ -1,6 +1,6 @@
 # [Youpp](http://ambrosechua.github.io/Youpp)
 
-A (beta) well-designed, simple YouTube client.
+A (beta) design-oriented, simple YouTube client.
 
 Code and design MIT Licensed.
 
