@@ -149,6 +149,7 @@ input:focus, textarea:focus, select:focus, button:focus {
 	border-radius: 0 0 2px 2px;
 	color: #fff;
 	cursor: default;
+	-webkit-app-region: no-drag;
 }
 #movebar span:hover {
 	background-color: #fff;
