@@ -6,7 +6,7 @@ var fs = require("fs");
 var app = http.createServer(handler);
 // var __dirname = path.dirname((window.location + "").replace("file:///", "/"));
 
-app.listen(39322);
+app.listen(39322, "127.0.0.1");
 
 var mimeTypes = {
 		"html": "text/html",
