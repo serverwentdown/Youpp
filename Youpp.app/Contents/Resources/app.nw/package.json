@@ -2,7 +2,9 @@
   "name": "Youpp",
   "description": "A nice YouTube player for you. ",
   "version": "0.0.1",
-  "main": "index.html",
+  "node-main": "server.js",
+  "node-remote": "localhost",
+  "main": "http://localhost:39322",
   "window": {
     "show": true,
     "toolbar": false,
