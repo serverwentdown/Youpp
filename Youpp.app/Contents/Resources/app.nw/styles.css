@@ -263,4 +263,5 @@ body:hover #back {
 	z-index: 20;
 	padding-top: 0px;
 	border: none;
+	background-color: #000;
 }

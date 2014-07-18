@@ -10,11 +10,13 @@ var menuview = new gui.Menu();
 var alwaysontop = false;
 function togglefloating () {
 	if (alwaysontop == true) {
+		console.info("awww not floating");
 		togglefloat.checked = false;
 		alwaysontop = false;
 		gwindow.setAlwaysOnTop(false);
 	}
 	else if (alwaysontop == false) {
+		console.info("yay floating");
 		togglefloat.checked = true;
 		alwaysontop = true;
 		gwindow.setAlwaysOnTop(true);
@@ -27,7 +29,6 @@ var togglefloat = new gui.MenuItem({
 });
 Mousetrap.bindGlobal(['command+f', 'ctrl+f'], function() {
 	togglefloating();
-	console.log("yay floating");
     return false;
 });
 // Check out line 123 onYouTubeIframeAPIReady()
@@ -38,7 +39,12 @@ Mousetrap.bindGlobal(['command+d', 'ctrl+d'], function() {
 menuview.append(togglefloat);
 menubar.append(new gui.MenuItem({ label: 'View', submenu: menuview }));
 gwindow.menu = menubar;
-
+gwindow.on("new-win-policy", function (frame, url, policy) {
+	if (url.indexOf("youtube") >= 0) {
+		gui.Shell.openExternal(url);
+	}
+	policy.ignore();
+});
 window.location.hash = "";
 
 $("#minimize").on("click", function () {
@@ -52,9 +58,14 @@ $("#exitbtn").on("click", function () {
 });
 $(window).on('hashchange', function() {
 	var hash = window.location.hash.replace("#", "");
-	console.log(hash);
+	console.info(hash);
 	if (hash.length == 11) {
-		showplayer(hash);
+		try {
+			showplayer(hash);
+		}
+		catch (e) {
+			console.error("oops. not loaded.");
+		}
 	}
 });
 
@@ -80,6 +91,12 @@ function getpopular() {
 			duration = duration.replace("S", " seconds ").replace("M", " minutes ").replace("H", " hours ").replace("PT", "");
 			$("#search .resultslist").append('<li><a href="#' + vid.id + '"><div style="background-image: url(' + vid.snippet.thumbnails.medium.url + '); "></div><h3>' + vid.snippet.title + '</h3><footer><span class="time">' + duration + '</span></footer></a></li>');
 		});
+	}).fail(function (error) {
+		console.error(error);
+		$("#search .resultslist").html('<li id="popular">Unable to get(); Check your connection. </li>');
+		setTimeout(function () {
+			getpopular();
+		}, 8000);
 	});
 }
 getpopular();
@@ -87,12 +104,13 @@ getpopular();
 var splash = setTimeout(function () {
 	$(".view").fadeOut(250);
 	$("#search").fadeIn(250);
-}, 4000);
-$("#splash").click(function () {
-	clearTimeout(splash);
-	$(".view").fadeOut(250);
-	$("#search").fadeIn(250);
-});
+	console.info("YouTube API not Ready yet. ");
+}, 5000);
+// $("#splash").click(function () {
+// 	clearTimeout(splash);
+// 	$(".view").fadeOut(250);
+// 	$("#search").fadeIn(250);
+// });
 
 function search(term) {
 	if (term != "") {
@@ -100,6 +118,12 @@ function search(term) {
 			// console.log(data.items);
 			$("#search .resultslist").empty();
 			populateresults(data.items);
+		}).fail(function (error) {
+			console.error(error);
+			$("#search .resultslist").html('<li id="popular">Unable to get(); Check your connection. </li>');
+			setTimeout(function () {
+				search(term);
+			}, 8000);
 		});
 	}
 	else {
@@ -113,7 +137,7 @@ $("#searchquery").keyup(function (e) {
 });
 $("#searchbtn").click(function () {
 	search($("#searchquery").val());
-})
+});
 
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -121,12 +145,17 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
+var currentvideoid = "8tPnX7OPo0Q";
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', {
 		height: '390',
 		width: '640',
-		videoId: 'M7lc1UVf-VE',
-	    playerVars: { 'autoplay': 0, 'controls': 0, 'showinfo': 0 },
+		videoId: '8tPnX7OPo0Q',
+	    playerVars: {
+	    	'autoplay': 1,
+	    	'controls': 0,
+	    	'showinfo': 0
+	    },
 		events: {
 			'onReady': onPlayerReady,
 			'onStateChange': onPlayerStateChange,
@@ -138,7 +167,26 @@ function onYouTubeIframeAPIReady() {
 	// });
 }
 function onPlayerReady(event) {
-	// event.target.playVideo();
+
+	if (splash) {
+		clearTimeout(splash);
+		$(".view").fadeOut(250);
+		$("#search").fadeIn(250);
+		splash = null;
+	}
+	else if (!splash) {
+		console.error("Something's gone wrong with the YouTube API! Multiple onReady events. ");
+	}
+
+	setTimeout(function () {
+		player.loadVideoById(currentvideoid);
+		event.target.playVideo();
+		// setTimeout(function () {
+		// 	event.target.stopVideo();
+		// }, 100);
+	}, 100);
+	console.info("Ready!");
+	// window.location.hash = "";
 }
 
 // var done = false;
@@ -156,14 +204,31 @@ var kbdeventhelper;
 
 function showplayer(id) {
 	$("body").addClass("playback");
+	player.setSize(window.innerWidth, window.innerHeight);
+	currentvideoid = id;
+	setTimeout(function () {
+		try {
+			player.loadVideoById(id);
+		}
+		catch (e) {
+			console.error(e);
+		}
+	}, 50);
 	// $(".view").fadeOut(250);
 	$("#playerview").fadeIn(250);
 	// $("#movebar").fadeOut(250);
-	player.loadVideoById(id);
+	// setTimeout(function () {
+	// // player.stopVideo();
+	// 	try {
+	// 		player.playVideo();
+	// 	}
+	// 	catch (e) {
+	// 		console.error(e);
+	// 	}
+	// }, 100);
 	// setTimeout(function () {
 	// 	event.target.playVideo()
 	// }, 1000);
-	player.setSize(window.innerWidth, window.innerHeight);
 
 	kbdeventhelper = setInterval(function () {
 		if (document.activeElement != document.getElementById("kbdeventhelper")) {
