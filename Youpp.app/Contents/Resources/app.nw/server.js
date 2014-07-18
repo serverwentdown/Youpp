@@ -21,7 +21,7 @@ function handler(req, res) {
 	// From http://stackoverflow.com/a/12164872/1716172
 	var uri = url.parse(req.url).pathname;
 	var filename = path.join(__dirname, unescape(uri));
-	console.log("someone requested " + filename);
+	// console.log("someone requested " + filename);
 	var stats;
 	try {
 		stats = fs.lstatSync(filename); // throws if path doesn't exist
