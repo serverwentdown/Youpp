@@ -4,6 +4,9 @@ A (beta) design-oriented, simple YouTube client.
 
 Code and design MIT Licensed.
 
+![youpp-splash-screenshot](https://f.cloud.github.com/assets/1705906/2428935/f84a0d7a-ac62-11e3-9ebe-b44484338afc.png)
+![youpp-adv](https://f.cloud.github.com/assets/1705906/2428934/f81a83f2-ac62-11e3-9366-a7c71c58c09b.png)
+
 ## Configurations
 
 **Do this in order to run**
