@@ -29,13 +29,8 @@ Problem is, node-webkit updates will have to be replaced on your own. [Download 
 
 ### Packaging for Windows
 
-Follow the [guide](https://github.com/rogerwang/node-webkit/wiki/How-to-package-and-distribute-your-apps#wiki-windows-1) on node-webkit wiki, or just read this:
-
-1. zip up the **contents** of the app.nw folder (don't be lazy and zip up the app.nw folder). Rename the zip to app.nw
-2. [Download](https://github.com/rogerwang/node-webkit/#downloads) node-webkit windows and rename folder to "node-webkit".
-3. Put the app.nw file into that folder.
-4. Run pack-Youpp.bat in the parent folder of node-webkit.
-5. zip up the new Youpp folder.
+1. Run **build.bat**
+2. Enjoy your new build in the **/release** folder
 6. share your build.
 
 ### [Packaging for Linux](https://github.com/rogerwang/node-webkit/wiki/How-to-package-and-distribute-your-apps#wiki-linux)
