@@ -103,6 +103,7 @@ input, textarea, select, button {
 	-webkit-user-select: text;
 	cursor: text;
 	-webkit-font-smoothing: inherit;
+	color: #444;
 }
 .box, input {
 	border: 0.2em solid #444;
