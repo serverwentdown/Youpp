@@ -19,13 +19,11 @@ All the fun happens in `Youpp.app/Contents/Resources/app.nw/`. All powered by no
 
 ## How to use.
 
-Well, I just dumped the .app folder here because I left the node-webkit, so you can just `git clone` the app down. 
+Well, I just dumped the .app folder here because I left the node-webkit, so you can just `git clone` the app down and run it. 
 
 ### Developing or running on a Mac
 
-Just clone this and you will find the app sitting in the folder without the need to compile anything.
-
-Problem is, node-webkit updates will have to be replaced on your own. [Download it](https://github.com/rogerwang/node-webkit/#downloads). Just keep the `Resources` and `Info.plist` files in the Youpp.app folder.
+node-webkit updates will have to be replaced on your own. [Download it](https://github.com/rogerwang/node-webkit/#downloads). Just keep the `Resources` and `Info.plist` files in the Youpp.app folder.
 
 ### Packaging for Windows
 
