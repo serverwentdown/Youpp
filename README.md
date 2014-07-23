@@ -9,7 +9,7 @@ Code and design MIT Licensed.
 
 ## Configurations
 
-**Do this in order to run**
+**Please do this to prevent API overload! **
 
 Check out the file `Youpp.app/Contents/Resources/app.nw/apikey-sample.js`, dump in your YouTube API key and rename to `apikey.js`.
 
@@ -19,7 +19,7 @@ All the fun happens in `Youpp.app/Contents/Resources/app.nw/`. All powered by no
 
 ## How to use.
 
-Well, I just dumped the .app folder here because I left the node-webkit.
+Well, I just dumped the .app folder here because I left the node-webkit, so you can just `git clone` the app down. 
 
 ### Developing or running on a Mac
 
