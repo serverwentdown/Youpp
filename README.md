@@ -17,5 +17,5 @@ Check out the file `apikey-sample.js`, dump in your YouTube API key and rename t
 
 ```
 sudo npm i -g nwjs-builder
-nwb nwbuild -p win32,osx64 --win-ico ./src/icon.ico --mac-icns ./src/icon.icns ./src -o ./build
+./build.sh
 ```
